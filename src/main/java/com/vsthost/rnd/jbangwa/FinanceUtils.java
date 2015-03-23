@@ -45,6 +45,11 @@ public class FinanceUtils {
     }
 
     public static double[][] getReturns (final double[][] prices) {
+        // Check prices:
+        if (prices == null || prices.length == 0) {
+            return prices;
+        }
+
         // Compute dimensions:
         int rowCount = prices.length - 1;
         int colCount = prices[0].length;
