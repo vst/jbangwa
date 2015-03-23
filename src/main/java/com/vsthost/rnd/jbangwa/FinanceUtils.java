@@ -174,4 +174,26 @@ public class FinanceUtils {
         }
         return retval;
     }
+
+    public static double[][] backfillSeries(double[][] prices) {
+        // Check prices:
+        if (prices.length == 0) {
+            return prices;
+        }
+
+        // Get a clone as a matrix:
+        RealMatrix matrix = MatrixUtils.createRealMatrix(prices);
+
+        // Iterate over columns and backfill:
+        for (int col = 0; col < matrix.getColumnDimension(); col++) {
+            for (int row = 1; row < matrix.getRowDimension(); row++) {
+                if (matrix.getEntry(row, col) == Double.NaN) {
+                    matrix.setEntry(row, col, matrix.getEntry(row - 1, col));
+                }
+            }
+        }
+
+        // Done, return the date:
+        return matrix.getData();
+    }
 }
