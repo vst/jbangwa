@@ -30,7 +30,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 /**
- * Created by vst on 3/3/15.
+ * Provides an XTS compatible (as in R packages) time series data class.
  */
 public class XTS {
     private final Calendar[] index;
