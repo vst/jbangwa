@@ -46,7 +46,7 @@
         <version.commons-csv>1.1</version.commons-csv>
         <version.gson>2.3.1</version.gson>
         <version.junit>4.12</version.junit>
-        <version.commons-math-extensions>0.0.1-SNAPSHOT</version.commons-math-extensions>
+        <version.commons-math-extensions>0.0.2</version.commons-math-extensions>
     </properties>
 
     <dependencies>
