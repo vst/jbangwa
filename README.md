@@ -1,6 +1,8 @@
 # jbangwa
 
-*jbangwa* provides various functionalities for Financial and Economic Research.
+[![Build Status](https://travis-ci.org/vst/jbangwa.svg?branch=develop)](https://travis-ci.org/vst/jbangwa)
+
+*jbangwa* provides various functions for Financial and Economic Research.
 
 `TODO: Write a complete README`
 
