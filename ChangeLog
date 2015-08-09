@@ -1,0 +1,27 @@
+VERS: 2015-08-09 ------- release/0.0.3
+
+    * 2015-08-09 06fe376 [release] Version bumped to 0.0.3 (vst@vsthost.com)
+    * 2015-08-09 db82460 [feature] Computing portfolio VaR/cVaR and differences of variances of weights (vst@vsthost.com)
+    * 2015-08-09 09e50f0 [chore] Clearing before deploying within Make (vst@vsthost.com)
+    * 2015-05-05 e0079f8 Enabled Travis (vst@vsthost.com)
+    * 2015-05-05 61a99d3 Replaced the install script with Makefile (vst@vsthost.com)
+    * 2015-03-29 378d6a2 Development version bumped to 0.0.3-SNAPSHOT (vst@vsthost.com)
+
+VERS: 2015-03-29 8231057 release/0.0.2 (vst@vsthost.com)
+
+    * 2015-03-29 e692535 Version bumped to 0.0.2 (vst@vsthost.com)
+    * 2015-03-29 48f00de commons-math-extensions dependency updated to 0.0.2 (vst@vsthost.com)
+    * 2015-03-29 e19418f Added Maven deployment descriptors (vst@vsthost.com)
+    * 2015-03-25 79a91f4 Development version bumped to 0.0.2-SNAPSHOT (vst@vsthost.com)
+
+VERS: 2015-03-25 723106e release/0.0.1 (vst@vsthost.com)
+
+    * 2015-03-25 a497dc0 Version bumped to 0.0.1 (vst@vsthost.com)
+    * 2015-03-25 b5a427e Added license notice to the README file (vst@vsthost.com)
+    * 2015-03-25 a0f0613 Added license file (vst@vsthost.com)
+    * 2015-03-25 632a7b1 Updated the POM file for Maven repository release (vst@vsthost.com)
+    * 2015-03-25 10ba1cb Documentation and code cleanup (vst@vsthost.com)
+    * 2015-03-23 dfbab64 Added new function for backfilling columns in a 2D matrix (vst@vsthost.com)
+    * 2015-03-23 ffaa34e Bug fix for return calculations (vst@vsthost.com)
+    * 2015-03-05 42d661d Initial code commit (vst@vsthost.com)
+    * 2015-03-05 59bc9ed Initial commit (vst@vsthost.com)
