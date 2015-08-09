@@ -23,6 +23,11 @@ import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.linear.RealVector;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math3.stat.descriptive.moment.Mean;
+import org.apache.commons.math3.stat.descriptive.moment.Variance;
+import org.apache.commons.math3.stat.descriptive.rank.Percentile;
+
+import java.util.Arrays;
 
 /**
  * Provides convenience functionalities for finance-related computational tasks.
@@ -272,7 +277,7 @@ public class FinanceUtils {
      *
      * @param returns The return series matrix.
      * @param weights The trade direction.
-     * @return
+     * @return Portfolio returns.
      */
     public static double[] portfolioReturns(double[][] returns, double[][] weights) {
         // Initialize the return value:
@@ -335,5 +340,44 @@ public class FinanceUtils {
 
         // Done, return the date:
         return matrix.getData();
+    }
+
+    /**
+     * Computes the portfolio VaR.
+     *
+     * @param returns Defines asset returns.
+     * @param weights Defines asset weights.
+     * @param percentile Defines the percentile.
+     * @param cVaR Indicates if we are calculating cVaR or normal VaR.
+     * @return cVaR or VaR.
+     */
+    public static double portfolioVaR (final double[][] returns, final double[] weights, final double percentile, final boolean cVaR) {
+        // Compute the portfolio return series:
+        final double[] portfolioReturns = portfolioReturns(MatrixUtils.createRealMatrix(returns), weights);
+
+        // If just VaR, return percentile:
+        if (!cVaR) {
+            return new Percentile().evaluate(portfolioReturns, 100 - percentile);
+        }
+
+        // Proceed for cVaR. Get the percentile:
+        final double percentileValue = new Percentile().evaluate(portfolioReturns, 100 - percentile);
+
+        // Get all values which are equal to or less than percentile value:
+        final double[] values = Arrays.stream(portfolioReturns).filter(d -> d <= percentileValue).toArray();
+
+        // Return the mean of values:
+        return new Mean().evaluate(values);
+    }
+
+    /**
+     * Computes the difference of variances of two weight vectors.
+     *
+     * @param weights1 Vector 1
+     * @param weights2 Vector 2
+     * @return The difference of variances of two weight vectors.
+     */
+    public static double diffWeightsVariance (final double[] weights1, final double[] weights2) {
+        return new Variance().evaluate(weights1) - new Variance().evaluate(weights2);
     }
 }
